@@ -1,0 +1,73 @@
+
+//水平方向上布局
+@mixin flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+//垂直方向上布局
+@mixin flex-vertical-container {
+  @include flex-container;
+  flex-direction: column;
+}
+
+@mixin flex-between {
+  @include flex-container;
+  justify-content: space-between;
+}
+
+@mixin flex-around {
+  @include flex-container;
+  justify-content: space-around;
+}
+
+
+@mixin pof-center($z-idx:99, $w:100%, $h:0) {
+  position: fixed;
+  z-index: $z-idx;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @if $w>0 {
+    width: $w;
+  }
+  @if $h>0 {
+    height:$h;
+  }
+}
+
+
+@mixin poa-center($w:0, $h:0, $tp:50%) {
+  display: block;
+  @if $w>0 {
+    width: $w;
+  }
+  @if $h>0 {
+    height: $h;
+  }
+  position: absolute;
+  left: 50%;
+  top: $tp;
+  transform: translate(-50%, -50%);
+}
+
+@mixin size-color($size, $color,$weight:normal,$lineHeight:1) {
+  color: $color;
+  font-size: $size;
+  @if ($lineHeight) {
+    line-height: $lineHeight;
+  }
+  font-weight: $weight;
+  font-family: "Microsoft YaHei";
+}
+
+@mixin wh($w,$h:$w) {
+  width: $w;
+  @if($h) {
+    height: $h;
+  }
+}
+
+
